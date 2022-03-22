@@ -32,9 +32,10 @@ $result ="";
      //Checks for errors
      if(mysqli_query($conn, $sql)) {
        //If no error success message is diplayed
+       $new_id = mysqli_insert_id($conn); 
        $result =  "<div class='success'>Account Added</div>";
-      //  header('Location: details.php');
-      echo mysqli_insert_id($conn); 
+      header("Location: details.php?=echo $new_id");
+       
      } else {
        //If there is an error is is diplayed
        $result = " <div class='error'>Query Error: mysqli_error($conn)</div>";
