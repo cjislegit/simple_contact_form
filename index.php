@@ -34,7 +34,7 @@ $result ="";
        //If no error success message is diplayed
        $result =  "<div class='success'>Account Added</div>";
       //  header('Location: details.php');
-      echo mysqli_query($conn, $sql);
+      echo mysqli_insert_id($conn); 
      } else {
        //If there is an error is is diplayed
        $result = " <div class='error'>Query Error: mysqli_error($conn)</div>";
