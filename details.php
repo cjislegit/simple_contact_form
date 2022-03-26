@@ -3,8 +3,8 @@
 require_once("config/heroku_db");
 
 //Get ID from URL
-$id = $_GET['id'];
-echo $id;
+// $id = $_GET['id'];
+// echo $id;
 
 // //Create MySQL query
 // $sql = "SELECT * FROM login WHERE id = $id";
