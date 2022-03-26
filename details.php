@@ -11,6 +11,11 @@ $sql = "SELECT * FROM login WHERE id = $id";
 //Send query
 $result = mysqli_query($conn, $sql);
 
+//Make result an array
+$contact = mysqli_fetch_assoc($result);
+
+print_r($contact);
+
 
 ?>
 
