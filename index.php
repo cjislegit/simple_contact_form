@@ -51,7 +51,7 @@ $result ="";
 
 <?php require_once("templates/header.php") ?>
     <div class="new-user">
-        <h2>Create New User</h2>
+        <h2>Contact Form</h2>
         <div><?php echo $result ?></div>
 
         <form  method="POST">
