@@ -1,6 +1,6 @@
 <?php 
 
-require_once("config/heroku_db");
+require_once("config/heroku_db.php");
 
 //Get ID from URL
 // $id = $_GET['id'];
