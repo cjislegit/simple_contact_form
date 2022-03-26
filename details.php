@@ -14,9 +14,6 @@ $result = mysqli_query($conn, $sql);
 //Make result an array
 $contact = mysqli_fetch_assoc($result);
 
-print_r($contact);
-
-
 ?>
 
 <?php require_once("templates/header.php"); ?>
