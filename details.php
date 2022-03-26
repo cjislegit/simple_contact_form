@@ -23,16 +23,16 @@ print_r($contact);
 <div class="new-user">
     <h2>Message Sent</h2>
     <div>
-        Username:
+        Username: <?php echo $contact["name"]; ?>
     </div>
     <div>
-        Email:
+        Email: <?php echo $contact["email"]; ?>
     </div>
     <div>
-        Issue:
+        Issue: <?php echo $contact["issue"]; ?>
     </div>
     <div>
-        Comment: 
+        Comment: <?php echo $contact["comment"]; ?> 
     </div>
 </div>
 
