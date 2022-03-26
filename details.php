@@ -11,7 +11,6 @@ $sql = "SELECT * FROM login WHERE id = $id";
 //Send query
 $result = mysqli_query($conn, $sql);
 
-echo $result;
 
 ?>
 
