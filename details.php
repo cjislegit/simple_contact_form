@@ -28,10 +28,9 @@ $contact = mysqli_fetch_assoc($result);
 
         <label for="issue">Issue: </label>
         <select name="issue" id="issue">
-            <option selected="selected" hidden="hidden" value="<?php echo $contact["issue"]; ?>"><?php echo $contact["issue"]; ?></option>
             <option value="query">Query</option>
             <option value="feedback">Feedback</option>
-            <option value="complaint">Complaint</option>
+            <option <?php if($contact["issue"] == "complaint") {echo "selected";} ?> value="complaint">Complaint</option>
             <option value="other">Other</option>
         </select>
 
