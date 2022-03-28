@@ -32,5 +32,24 @@ $contact = mysqli_fetch_assoc($result);
         Comment: <?php echo $contact["comment"]; ?> 
     </div>
 </div>
+<form action="POST">
+    <label for="username">Username: </label>
+    <input type="text" name="username" value="<?php echo $contact["name"]; ?>">
+
+    <label for="email">Email: </label>
+    <input type="email" name="email" value="<?php echo $contact["email"]; ?>">
+
+    <label for="issue">Issue: </label>
+    <select name="issue" id="issue" value="<?php echo $contact["issue"]; ?>">
+        <option value="query">Query</option>
+        <option value="feedback">Feedback</option>
+        <option value="complaint">Complaint</option>
+        <option value="other">Other</option>
+    </select>
+
+    <label for="comment"></label>
+    <textarea name="comment" id="comment" cols="30" rows="10" value="<?php echo $contact["comment"]; ?> "></textarea>
+
+</form>
 
 <?php require_once("templates/footer.php"); ?>
