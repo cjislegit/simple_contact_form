@@ -48,7 +48,7 @@ $contact = mysqli_fetch_assoc($result);
     </select>
 
     <label for="comment"></label>
-    <textarea name="comment" id="comment" cols="30" rows="10" value="<?php echo $contact["comment"]; ?> "></textarea>
+    <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $contact["comment"]; ?></textarea>
 
 </form>
 
