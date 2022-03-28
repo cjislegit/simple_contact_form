@@ -27,9 +27,10 @@ $contact = mysqli_fetch_assoc($result);
         <input type="email" name="email" value="<?php echo $contact["email"]; ?>">
 
         <label for="issue">Issue: </label>
-        <select name="issue" id="issue" value="<?php echo $contact["issue"]; ?>">
+        <select name="issue" id="issue">
+            <option selected="selected" hidden="hidden" value="<?php echo $contact["issue"]; ?>"><?php echo $contact["issue"]; ?></option>
             <option value="query">Query</option>
-         <option value="feedback">Feedback</option>
+            <option value="feedback">Feedback</option>
             <option value="complaint">Complaint</option>
             <option value="other">Other</option>
         </select>
