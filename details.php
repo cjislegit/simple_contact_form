@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-require_once("config/heroku_db.php");
+require_once "config/heroku_db.php";
 
 //Get ID from URL
 $id = $_GET['id'];
@@ -16,7 +16,7 @@ $contact = mysqli_fetch_assoc($result);
 
 ?>
 
-<?php require_once("templates/header.php"); ?>
+<?php require_once "templates/header.php";?>
 <div class="new-user">
     <h2>Message Sent</h2>
     <form action="POST">
@@ -28,10 +28,11 @@ $contact = mysqli_fetch_assoc($result);
 
         <label for="issue">Issue: </label>
         <select name="issue" id="issue">
-            <option <?php if($contact["issue"] == "query") {echo "selected";} ?> value="query">Query</option>
-            <option <?php if($contact["issue"] == "feedback") {echo "selected";} ?> value="feedback">Feedback</option>
-            <option <?php if($contact["issue"] == "complaint") {echo "selected";} ?> value="complaint">Complaint</option>
-            <option <?php if($contact["issue"] == "other") {echo "selected";} ?> value="other">Other</option>
+            <option <?php if ($contact["issue"] == "query") {echo "selected";}?> value="query">Query</option>
+            <option <?php if ($contact["issue"] == "feedback") {echo "selected";}?> value="feedback">Feedback</option>
+            <option <?php if ($contact["issue"] == "complaint") {echo "selected";}?> value="complaint">Complaint
+            </option>
+            <option <?php if ($contact["issue"] == "other") {echo "selected";}?> value="other">Other</option>
         </select>
 
         <label for="comment"></label>
@@ -41,4 +42,4 @@ $contact = mysqli_fetch_assoc($result);
 </div>
 
 
-<?php require_once("templates/footer.php"); ?>
+<?php require_once "templates/footer.php";?>
