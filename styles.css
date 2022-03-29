@@ -36,6 +36,7 @@ textarea {
   padding: 10px;
   border-radius: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 input[type='submit'] {
