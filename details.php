@@ -31,6 +31,8 @@ if (isset($_POST["update message"])) {
 
 }
 
+print_r($_POST);
+
 ?>
 
 <?php require_once "templates/header.php";?>
