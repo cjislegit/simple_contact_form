@@ -55,7 +55,7 @@ if (isset($_POST["update message"])) {
         <label for="comment"></label>
         <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $contact["comment"]; ?></textarea>
 
-        <input type="submit" value="Update Message" name="update message">
+        <input type="submit" value="Update Message" id="update message" name="update message">
     </form>
 </div>
 
