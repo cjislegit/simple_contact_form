@@ -36,7 +36,7 @@ if (isset($_POST["submit"])) {
 <?php require_once "templates/header.php";?>
 <div class="new-user">
     <h2>Message Sent</h2>
-    <form action="POST">
+    <form method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username" value="<?php echo $contact["name"]; ?>">
 
