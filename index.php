@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
             //If no error success message is diplayed
             $new_id = mysqli_insert_id($conn);
             $result = "<div class='success'>Account Added</div>";
-            // header("Location: details.php?id=$new_id");
+            header("Location: details.php?id=$new_id");
 
         } else {
             //If there is an error is is diplayed
@@ -44,8 +44,6 @@ if (isset($_POST["submit"])) {
     }
 
 }
-
-print_r($_POST);
 
 ?>
 
