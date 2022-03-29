@@ -15,19 +15,20 @@ $result = mysqli_query($conn, $sql);
 $contact = mysqli_fetch_assoc($result);
 
 if (isset($_POST["submit"])) {
-    //Make input to strings and then set variables
-    $name = mysqli_real_escape_string($conn, $_POST["username"]);
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
-    $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
+    echo "So far so good";
+    // //Make input to strings and then set variables
+    // $name = mysqli_real_escape_string($conn, $_POST["username"]);
+    // $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    // $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
+    // $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
 
-    //Create the sql querry
-    $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE id = $id";
+    // //Create the sql querry
+    // $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE id = $id";
 
-    //Save to db
-    if (mysqli_query($conn, $sql)) {
-        echo "It worked";
-    }
+    // //Save to db
+    // if (mysqli_query($conn, $sql)) {
+    //     echo "It worked";
+    // }
 
 }
 
