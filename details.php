@@ -38,6 +38,7 @@ $contact = mysqli_fetch_assoc($result);
         <label for="comment"></label>
         <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $contact["comment"]; ?></textarea>
 
+        <input type="submit" value="submit" name="Update Message">
     </form>
 </div>
 
