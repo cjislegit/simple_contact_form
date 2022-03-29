@@ -14,7 +14,7 @@ $result = mysqli_query($conn, $sql);
 //Make result an array
 $contact = mysqli_fetch_assoc($result);
 
-if (isset($_POST["update message"])) {
+if (isset($_POST["submit"])) {
     //Make input to strings and then set variables
     $name = mysqli_real_escape_string($conn, $_POST["username"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
