@@ -2,6 +2,10 @@
 
 require_once "config/heroku_db.php";
 
+if (isset($_POST["submit"])) {
+    echo $_POST["comment"];
+}
+
 //Get ID from URL
 $id = $_GET['id'];
 
