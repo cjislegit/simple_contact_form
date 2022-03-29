@@ -57,7 +57,7 @@ print_r($_POST);
         <label for="comment"></label>
         <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $contact["comment"]; ?></textarea>
 
-        <input type="submit" value="update message" id="update message" name="update message">
+        <input type="submit" value="submit" name="submit">
     </form>
 </div>
 
