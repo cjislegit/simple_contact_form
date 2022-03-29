@@ -2,10 +2,6 @@
 
 require_once "config/heroku_db.php";
 
-if (isset($_POST["submit"])) {
-    echo $_POST["comment"];
-}
-
 //Get ID from URL
 $id = $_GET['id'];
 
@@ -17,6 +13,23 @@ $result = mysqli_query($conn, $sql);
 
 //Make result an array
 $contact = mysqli_fetch_assoc($result);
+
+if (isset($_POST["submit"])) {
+    //Make input to strings and then set variables
+    $name = mysqli_real_escape_string($conn, $_POST["username"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
+    $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
+
+    //Create the sql querry
+    $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE id = $id";
+
+    //Save to db
+    if (mysqli_query($conn, $sql)) {
+        echo "It worked";
+    }
+
+}
 
 ?>
 
