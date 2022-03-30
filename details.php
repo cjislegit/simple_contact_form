@@ -22,10 +22,9 @@ if (isset($_POST["submit"])) {
     $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
     $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
 
-    echo "So far so good";
-
-    // //Create the sql querry
-    // $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE id = $id";
+    //Create the sql querry
+    $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE id = $id";
+    echo $sql;
 
     // //Save to db
     // if (mysqli_query($conn, $sql)) {
@@ -33,8 +32,6 @@ if (isset($_POST["submit"])) {
     // }
 
 }
-
-print_r($_POST);
 
 ?>
 
