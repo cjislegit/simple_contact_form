@@ -26,10 +26,13 @@ if (isset($_POST["submit"])) {
     $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE id = $id";
     echo $sql;
 
-    // //Save to db
-    // if (mysqli_query($conn, $sql)) {
-    //     echo "It worked";
-    // }
+    //Save to db
+    if (mysqli_query($conn, $sql)) {
+        echo "It worked";
+    } else {
+        //If there is an error is is diplayed
+        echo mysqli_error($conn);
+    }
 
 }
 
