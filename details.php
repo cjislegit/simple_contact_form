@@ -24,11 +24,16 @@ if (isset($_POST["submit"])) {
 
     //Create the sql querry
     $sql = "UPDATE login SET name='$name', email='$email', issue='$issue', comment='$comment' WHERE id='$id'";
-    echo $sql;
 
     //Save to db
     if (mysqli_query($conn, $sql)) {
         echo "It worked";
+        //Send query
+        $result = mysqli_query($conn, $sql);
+
+//Make result an array
+        $contact = mysqli_fetch_assoc($result);
+
     } else {
         //If there is an error is is diplayed
         echo mysqli_error($conn);
