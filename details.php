@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
     $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
 
     //Create the sql querry
-    $sql = "UPDATE login SET name = $name, email = $email, issue = $issue, comment = $comment WHERE login.id = $id";
+    $sql = "UPDATE login SET name=$name, email=$email, issue=$issue, comment=$comment WHERE id=$id";
     echo $sql;
 
     //Save to db
