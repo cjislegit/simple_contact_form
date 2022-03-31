@@ -1,18 +1,9 @@
 <?php
 
 require_once "config/heroku_db.php";
+require_once "/get_record.php";
 
-//Get ID from URL
-$id = $_GET['id'];
-
-//Create MySQL query
-$sql = "SELECT * FROM login WHERE id = $id";
-
-//Send query
-$result = mysqli_query($conn, $sql);
-
-//Make result an array
-$contact = mysqli_fetch_assoc($result);
+get_record($conn);
 
 if (isset($_POST["submit"])) {
 
