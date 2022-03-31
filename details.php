@@ -27,7 +27,6 @@ if (isset($_POST["submit"])) {
 
     //Save to db
     if (mysqli_query($conn, $sql)) {
-        echo "It worked";
         echo "<meta http-equiv='refresh' content='0'>";
 
     } else {
