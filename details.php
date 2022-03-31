@@ -4,6 +4,7 @@ require_once "config/heroku_db.php";
 require_once "/get_record.php";
 
 get_record();
+print_r($contact);
 
 if (isset($_POST["submit"])) {
 
