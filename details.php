@@ -2,6 +2,8 @@
 
 require_once "config/heroku_db.php";
 
+$update = "";
+
 //Get ID from URL
 $id = $_GET['id'];
 
@@ -28,10 +30,11 @@ if (isset($_POST["submit"])) {
     //Save to db
     if (mysqli_query($conn, $sql)) {
         echo "<meta http-equiv='refresh' content='0'>";
+        $update = "Info Updated";
 
     } else {
         //If there is an error is is diplayed
-        echo mysqli_error($conn);
+        $update = mysqli_error($conn);
     }
 
 }
@@ -41,6 +44,9 @@ if (isset($_POST["submit"])) {
 <?php require_once "templates/header.php";?>
 <div class="new-user">
     <h2>Message Sent</h2>
+    <div>
+        <?php echo $update ?>
+    </div>
     <form method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username" value="<?php echo $contact["name"]; ?>">
