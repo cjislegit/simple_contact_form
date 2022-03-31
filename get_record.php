@@ -1,7 +1,9 @@
 <?php
 
-function get_record($conn)
+function get_record()
 {
+    require_once "config/heroku_db.php";
+
 //Get ID from URL
     $id = $_GET['id'];
 
