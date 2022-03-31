@@ -9,13 +9,14 @@ function get_record()
 
 //Create MySQL query
     $sql = "SELECT * FROM login WHERE id = $id";
-    echo $sql;
 
 //Send query
     $result = mysqli_query($conn, $sql);
 
 //Make result an array
     $contact = mysqli_fetch_assoc($result);
+
+    print_r($contact);
 
     return $contact;
 
