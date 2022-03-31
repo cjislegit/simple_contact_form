@@ -11,14 +11,7 @@ function get_record()
     $sql = "SELECT * FROM login WHERE id = $id";
 
 //Send query
-    // $result = mysqli_query($conn, $sql);
-    if (mysqli_query($conn, $sql)) {
-        echo "It worked";
-
-    } else {
-        //If there is an error is is diplayed
-        echo mysqli_error($conn);
-    }
+    $result = mysqli_query($conn, $sql);
 
 //Make result an array
     $contact = mysqli_fetch_assoc($result);
