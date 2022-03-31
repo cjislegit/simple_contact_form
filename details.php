@@ -2,8 +2,6 @@
 
 require_once "config/heroku_db.php";
 
-$update = "";
-
 //Get ID from URL
 $id = $_GET['id'];
 
