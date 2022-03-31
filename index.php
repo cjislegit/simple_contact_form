@@ -45,8 +45,6 @@ if (isset($_POST["submit"])) {
 
 }
 
-print_r($_POST);
-
 ?>
 
 <?php require_once "templates/header.php"?>
