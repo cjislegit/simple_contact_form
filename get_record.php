@@ -14,4 +14,6 @@ function get_record($conn)
 //Make result an array
     $contact = mysqli_fetch_assoc($result);
 
+    return $contact;
+
 }
