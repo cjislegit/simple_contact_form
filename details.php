@@ -28,11 +28,6 @@ if (isset($_POST["submit"])) {
     //Save to db
     if (mysqli_query($conn, $sql)) {
         echo "It worked";
-        //Send query
-        $result = mysqli_query($conn, $sql);
-
-//Make result an array
-        $contact = mysqli_fetch_assoc($result);
 
     } else {
         //If there is an error is is diplayed
