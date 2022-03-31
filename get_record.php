@@ -2,6 +2,7 @@
 
 function get_record()
 {
+    echo "Lets start here";
     require_once "config/heroku_db.php";
 
 //Get ID from URL
