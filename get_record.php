@@ -6,6 +6,7 @@ function get_record()
 
 //Get ID from URL
     $id = $_GET['id'];
+    echo $id;
 
 //Create MySQL query
     $sql = "SELECT * FROM login WHERE id = $id";
