@@ -4,7 +4,7 @@ require_once "config/heroku_db.php";
 
 //Check if info has been updated
 if ($_GET["updated"]) {
-    $update = "Info Updated";
+    $update = "<div class='success'>Info Updated</div>";
 
 }
 
@@ -45,11 +45,9 @@ if (isset($_POST["submit"])) {
 ?>
 
 <?php require_once "templates/header.php";?>
-<div class="new-user">
+< class="new-user">
     <h2>Message Sent</h2>
-    <div>
-        <?php echo $update ?>
-    </div>
+    <?php echo $update ?>
     <form method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username" value="<?php echo $contact["name"]; ?>">
@@ -71,7 +69,7 @@ if (isset($_POST["submit"])) {
 
         <input type="submit" value="submit" name="submit">
     </form>
-</div>
+    </div>
 
 
-<?php require_once "templates/footer.php";?>
+    <?php require_once "templates/footer.php";?>
