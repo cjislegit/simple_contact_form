@@ -4,7 +4,7 @@ require_once "config/heroku_db.php";
 
 //Check if info has been updated
 if ($_GET["updated"]) {
-    $update = "<div class='success'>Info Updated</div>";
+    $update = "<div class='success'>Message Updated</div>";
 
 }
 
