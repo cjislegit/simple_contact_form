@@ -14,6 +14,8 @@ $result = "";
 if ($_GET["updated"]) {
     $update = "<div class='success'>Message Updated</div>";
 
+} else {
+    $update = "";
 }
 
 //Get ID from URL
@@ -55,7 +57,8 @@ if (isset($_POST["submit"])) {
     }
 
 } else {
-    $update = "";
+    header("Location: details.php?id=$id");
+
 }
 
 ?>
