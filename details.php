@@ -1,6 +1,14 @@
 <?php
 
 require_once "config/heroku_db.php";
+require_once "user_validator.php";
+
+$errors = [];
+$name = "";
+$email = "";
+$issue = "";
+$comment = "";
+$result = "";
 
 //Check if info has been updated
 if ($_GET["updated"]) {
@@ -21,23 +29,29 @@ $result = mysqli_query($conn, $sql);
 $contact = mysqli_fetch_assoc($result);
 
 if (isset($_POST["submit"])) {
+    //validate entries
+    $validation = new UserValidator($_POST);
+    $errors = $validation->validateForm();
 
-    //Make input to strings and then set variables
-    $name = mysqli_real_escape_string($conn, $_POST["username"]);
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
-    $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
+    if (!array_filter($errors)) {
+        //Make input to strings and then set variables
+        $name = mysqli_real_escape_string($conn, $_POST["username"]);
+        $email = mysqli_real_escape_string($conn, $_POST["email"]);
+        $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
+        $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
 
-    //Create the sql querry
-    $sql = "UPDATE login SET name='$name', email='$email', issue='$issue', comment='$comment' WHERE id='$id'";
+//Create the sql querry
+        $sql = "UPDATE login SET name='$name', email='$email', issue='$issue', comment='$comment' WHERE id='$id'";
 
-    //Save to db
-    if (mysqli_query($conn, $sql)) {
-        header("Location: details.php?id=$id&updated=true");
+//Save to db
+        if (mysqli_query($conn, $sql)) {
+            header("Location: details.php?id=$id&updated=true");
 
-    } else {
-        //If there is an error is is diplayed
-        $update = mysqli_error($conn);
+        } else {
+            //If there is an error is is diplayed
+            $update = mysqli_error($conn);
+        }
+
     }
 
 }
@@ -52,9 +66,15 @@ if (isset($_POST["submit"])) {
     <form method="POST">
         <label for="username">Username: </label>
         <input type="text" name="username" value="<?php echo $contact["name"]; ?>">
+        <div class="error">
+            <?php echo $errors["username"] ?? "" ?>
+        </div>
 
         <label for="email">Email: </label>
         <input type="email" name="email" value="<?php echo $contact["email"]; ?>">
+        <div class="error">
+            <?php echo $errors["email"] ?? "" ?>
+        </div>
 
         <label for="issue">Issue: </label>
         <select name="issue" id="issue">
