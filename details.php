@@ -54,10 +54,10 @@ if (isset($_POST["submit"])) {
             $update = mysqli_error($conn);
         }
 
-    }
+    } else {
+        header("Location: details.php?id=$id");
 
-} else {
-    header("Location: details.php?id=$id");
+    }
 
 }
 
