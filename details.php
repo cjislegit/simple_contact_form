@@ -2,6 +2,12 @@
 
 require_once "config/heroku_db.php";
 
+//Check if info has been updated
+if ($_GET["updated"]) {
+    $update = "Info Updated";
+
+}
+
 //Get ID from URL
 $id = $_GET['id'];
 
@@ -27,8 +33,7 @@ if (isset($_POST["submit"])) {
 
     //Save to db
     if (mysqli_query($conn, $sql)) {
-        echo "<meta http-equiv='refresh' content='0'>";
-        $update = "Info Updated";
+        header("Location: details.php?id=$id&updated=true");
 
     } else {
         //If there is an error is is diplayed
