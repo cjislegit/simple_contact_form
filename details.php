@@ -46,6 +46,7 @@ if (isset($_POST["submit"])) {
 
 <?php require_once "templates/header.php";?>
 <div class="new-user">
+    <a href="index.php">Back</a>
     <h2>Message Sent</h2>
     <?php echo $update ?>
     <form method="POST">
