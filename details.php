@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
         }
 
     } else {
-        header("Location: details.php?id=$id");
+        $update = "";
 
     }
 
