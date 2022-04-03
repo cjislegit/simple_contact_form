@@ -54,6 +54,8 @@ if (isset($_POST["submit"])) {
 
     }
 
+} else {
+    $update = "";
 }
 
 ?>
