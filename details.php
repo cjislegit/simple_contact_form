@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
 ?>
 
 <?php require_once "templates/header.php";?>
-< class="new-user">
+<div class="new-user">
     <h2>Message Sent</h2>
     <?php echo $update ?>
     <form method="POST">
@@ -69,7 +69,7 @@ if (isset($_POST["submit"])) {
 
         <input type="submit" value="submit" name="submit">
     </form>
-    </div>
+</div>
 
 
-    <?php require_once "templates/footer.php";?>
+<?php require_once "templates/footer.php";?>
