@@ -1,7 +1,9 @@
 html,
 body {
   height: 100vh;
+  box-sizing: border-box;
 }
+
 body {
   background: #ffece5;
   font-family: verdana;
