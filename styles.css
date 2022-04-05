@@ -1,3 +1,7 @@
+html,
+body {
+  height: 100vh;
+}
 body {
   background: #ffece5;
   font-family: verdana;
