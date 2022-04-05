@@ -3,6 +3,7 @@ body {
   font-family: verdana;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .new-user {
