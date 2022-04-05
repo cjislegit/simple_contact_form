@@ -1,6 +1,8 @@
 body {
   background: #ffece5;
   font-family: verdana;
+  display: flex;
+  justify-content: center;
 }
 
 .new-user {
