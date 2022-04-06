@@ -93,7 +93,7 @@ if (isset($_POST["submit"])) {
         <label for="comment"></label>
         <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $contact["comment"]; ?></textarea>
 
-        <input type="submit" value="submit" name="submit">
+        <input type="submit" value="update" name="submit">
     </form>
 </div>
 
