@@ -19,10 +19,10 @@ if (isset($_POST["submit"])) {
 
     if (!array_filter($errors)) {
         //Makes sure the input is strings and then sets the variables to the user input
-        $name = mysqli_real_escape_string($conn, $_POST["username"]);
-        $email = mysqli_real_escape_string($conn, $_POST["email"]);
+        $name = $_POST["username"];
+        $email = $_POST["email"];
         $issue = $_POST["issue"];
-        $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
+        $comment = $_POST["comment"];
 
         //Creates the sql query
         $sql = "INSERT INTO login(name, email, issue, comment) VALUES(:name, :email', :issue, :comment)";
