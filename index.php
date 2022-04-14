@@ -25,12 +25,14 @@ if (isset($_POST["submit"])) {
         $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
 
         //Creates the sql query
-        $sql = "INSERT INTO login(name, email, issue, comment) VALUES('$name', '$email', '$issue', '$comment')";
+        $sql = "INSERT INTO login(name, email, issue, comment) VALUES(:name, :email', :issue, :comment)";
+
+        $stmt = $pdo->prepare($sql);
 
         //save to db
 
         //Checks for errors
-        if (mysqli_query($conn, $sql)) {
+        if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment])) {
             //If no error success message is diplayed
             $new_id = mysqli_insert_id($conn);
             $result = "<div class='success'>Account Added</div>";
