@@ -15,3 +15,5 @@ $dsn = "mysql:host=$server;dbname=$db";
 
 //Create PDO Instance
 $pdo = new PDO($dsn, $user, $password);
+
+echo "Test";
