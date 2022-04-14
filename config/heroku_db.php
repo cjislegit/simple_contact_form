@@ -12,8 +12,7 @@ $db = substr($url["path"], 1);
 
 //Create DSN
 $dsn = "mysql:host=$server;dbname=$db";
+echo "Test";
 
 //Create PDO Instance
 $pdo = new PDO($dsn, $user, $password);
-
-echo "Test";
