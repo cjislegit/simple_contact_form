@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
         //Checks for errors
         if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment])) {
             //If no error success message is diplayed
-            $new_id = mysqli_insert_id($conn);
+            $new_id = $pdo->lastInsertId();
             $result = "<div class='success'>Account Added</div>";
             header("Location: details.php?id=$new_id");
 
