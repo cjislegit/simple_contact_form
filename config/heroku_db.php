@@ -11,7 +11,7 @@ $db = substr($url["path"], 1);
 //DPO Setup
 
 //Create DSN
-$dsn = "mysql:host=$server;dbname=$db;";
+$dsn = "mysql:host=$server;dbname=$db";
 
 //Create PDO Instance
-$pdo = new PDO($dsn, $user, $password);
+$pdo = new PDO($dsn, $username, $password);
