@@ -22,13 +22,16 @@ if ($_GET["updated"]) {
 $id = $_GET['id'];
 
 //Create MySQL query
-$sql = "SELECT * FROM login WHERE id = $id";
+$sql = "SELECT * FROM login WHERE id = :id";
 
-//Send query
-$result = mysqli_query($conn, $sql);
+//Prepage PDO
+$stmt = $pdo->prepare($qsl);
+
+//Execut PDO
+$stmt->execute(["id" => $id]);
 
 //Make result an array
-$contact = mysqli_fetch_assoc($result);
+$contact = $stmt->fetch(PDO::FETCH_OBJ);
 
 if (isset($_POST["submit"])) {
     //validate entries
