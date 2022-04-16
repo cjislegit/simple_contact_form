@@ -25,7 +25,7 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM login WHERE id = :id";
 
 //Prepage PDO
-$stmt = $pdo->prepare($qsl);
+$stmt = $pdo->prepare($sql);
 
 //Execut PDO
 $stmt->execute(["id" => $id]);
