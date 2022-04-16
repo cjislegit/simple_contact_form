@@ -40,16 +40,18 @@ if (isset($_POST["submit"])) {
 
     if (!array_filter($errors)) {
         //Make input to strings and then set variables
-        $name = mysqli_real_escape_string($conn, $_POST["username"]);
-        $email = mysqli_real_escape_string($conn, $_POST["email"]);
-        $issue = mysqli_real_escape_string($conn, $_POST["issue"]);
-        $comment = mysqli_real_escape_string($conn, $_POST["comment"]);
+        $name = $_POST["username"];
+        $email = $_POST["email"];
+        $issue = $_POST["issue"];
+        $comment = $_POST["comment"];
 
 //Create the sql querry
-        $sql = "UPDATE login SET name='$name', email='$email', issue='$issue', comment='$comment' WHERE id='$id'";
+        $sql = "UPDATE login SET name = :name, email = :email, issue = :issue, comment = :comment WHERE id = :id";
+
+        $stmt = $pdo->prepare($sql);
 
 //Save to db
-        if (mysqli_query($conn, $sql)) {
+        if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment, "id" => $id])) {
             header("Location: details.php?id=$id&updated=true");
 
         } else {
