@@ -30,19 +30,18 @@ if (isset($_POST["submit"])) {
         $stmt = $pdo->prepare($sql);
 
         //save to db
-        $stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment]);
 
-        // //Checks for errors
-        // if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment])) {
-        //     //If no error success message is diplayed
-        //     $new_id = $pdo->lastInsertId();
-        //     $result = "<div class='success'>Account Added</div>";
-        //     header("Location: details.php?id=$new_id");
+        //Checks for errors
+        if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment])) {
+            //If no error success message is diplayed
+            $new_id = $pdo->lastInsertId();
+            $result = "<div class='success'>Account Added</div>";
+            header("Location: details.php?id=$new_id");
 
-        // } else {
-        //     //If there is an error is is diplayed
-        //     $result = " <div class='error'>Query Error: mysqli_error($conn)</div>";
-        // }
+        } else {
+            //If there is an error is is diplayed
+            $result = " <div class='error'>Query Error: mysqli_error($conn)</div>";
+        }
 
     }
 
