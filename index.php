@@ -25,7 +25,7 @@ if (isset($_POST["submit"])) {
         $comment = $_POST["comment"];
 
         //Creates the sql query
-        $sql = "INSERT INTO login(name, email, issue, comment) VALUES(:name, :email', :issue, :comment)";
+        $sql = "INSERT INTO login(name, email, issue, comment) VALUES(:name, :email, :issue, :comment)";
 
         $stmt = $pdo->prepare($sql);
 
