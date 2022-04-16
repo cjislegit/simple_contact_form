@@ -31,7 +31,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute(["id" => $id]);
 
 //Make result an array
-$contact = $stmt->fetch(PDO::FETCH_OBJ);
+$contact = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_POST["submit"])) {
     //validate entries
