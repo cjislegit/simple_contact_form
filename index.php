@@ -1,8 +1,7 @@
 <?php
 
 require_once "user_validator.php";
-// require_once "config/heroku_db.php";
-require_once "config/heroku_db_local.php";
+require_once "config/heroku_db.php";
 
 $errors = [];
 $name = "";
