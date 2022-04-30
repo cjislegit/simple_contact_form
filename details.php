@@ -3,6 +3,23 @@
 // require_once "config/heroku_db.php";
 require_once "config/heroku_db_local.php";
 require_once "user_validator.php";
+require_once "config/Database.php";
+require_once "models/Contact.php";
+
+//Instantiate DB & Connect
+$database = new Database();
+$db = $database->connect();
+
+//Instantiate new_contact Object
+$new_contact = new Contact($db);
+
+//Get ID
+$new_contact->id = isset($_GET['id']) ? $_GET['id'] : die();
+
+//Get new_contact
+$new_contact->get_single();
+
+echo $new_contact->email;
 
 $errors = [];
 $name = "";
@@ -76,28 +93,29 @@ if (isset($_POST["submit"])) {
     <?php echo $update ?>
     <form method="POST">
         <label for="username">Username: </label>
-        <input type="text" name="username" value="<?php echo $contact["name"]; ?>">
+        <input type="text" name="username" value="<?php echo $new_contact->name; ?>">
         <div class="error">
             <?php echo $errors["username"] ?? "" ?>
         </div>
 
         <label for="email">Email: </label>
-        <input type="email" name="email" value="<?php echo $contact["email"]; ?>">
+        <input type="email" name="email" value="<?php echo $new_contact->email; ?>">
         <div class="error">
             <?php echo $errors["email"] ?? "" ?>
         </div>
 
         <label for="issue">Issue: </label>
         <select name="issue" id="issue">
-            <option <?php if ($contact["issue"] == "query") {echo "selected";}?> value="query">Query</option>
-            <option <?php if ($contact["issue"] == "feedback") {echo "selected";}?> value="feedback">Feedback</option>
-            <option <?php if ($contact["issue"] == "complaint") {echo "selected";}?> value="complaint">Complaint
+            <option <?php if ($new_contact->issue == "query") {echo "selected";}?> value="query">Query</option>
+            <option <?php if ($new_contact->issue == "feedback") {echo "selected";}?> value="feedback">Feedback
             </option>
-            <option <?php if ($contact["issue"] == "other") {echo "selected";}?> value="other">Other</option>
+            <option <?php if ($new_contact->issue == "complaint") {echo "selected";}?> value="complaint">Complaint
+            </option>
+            <option <?php if ($new_contact->issue == "other") {echo "selected";}?> value="other">Other</option>
         </select>
 
         <label for="comment"></label>
-        <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $contact["comment"]; ?></textarea>
+        <textarea name="comment" id="comment" cols="30" rows="10"><?php echo $new_contact->comment; ?></textarea>
 
         <input type="submit" value="update" name="submit">
     </form>

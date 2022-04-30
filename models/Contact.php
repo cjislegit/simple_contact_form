@@ -7,11 +7,11 @@ class Contact
     private $table = "login";
 
     //Contact Properties
-    private $id;
-    private $name;
-    private $email;
-    private $issue;
-    private $comment;
+    public $id;
+    public $name;
+    public $email;
+    public $issue;
+    public $comment;
 
     //Constructor with DB
     public function __construct($db)
@@ -22,10 +22,13 @@ class Contact
     //Get Single Post
     public function get_single()
     {
-        $sql = "SELECT * FROM login WHERE id = :id";
+        $sql = "SELECT * FROM $this->table WHERE id = :id";
 
         //Prepate PDO
         $stmt = $this->conn->prepare($sql);
+
+        //Bind ID
+        $stmt->bindParam(":id", $this->id);
 
         //Execute PDO
         $stmt->execute();
@@ -33,7 +36,11 @@ class Contact
         //Make Result an Array
         $contact = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $contact;
+        //Set Properties
+        $this->name = $contact["name"];
+        $this->email = $contact["email"];
+        $this->issue = $contact["issue"];
+        $this->comment = $contact["comment"];
 
     }
 }
