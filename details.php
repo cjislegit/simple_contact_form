@@ -19,8 +19,6 @@ $new_contact->id = isset($_GET['id']) ? $_GET['id'] : die();
 //Get new_contact
 $new_contact->get_single();
 
-echo $new_contact->email;
-
 $errors = [];
 $name = "";
 $email = "";
@@ -35,21 +33,6 @@ if ($_GET["updated"]) {
 } else {
     $update = "";
 }
-
-//Get ID from URL
-$id = $_GET['id'];
-
-//Create MySQL query
-$sql = "SELECT * FROM login WHERE id = :id";
-
-//Prepage PDO
-$stmt = $pdo->prepare($sql);
-
-//Execut PDO
-$stmt->execute(["id" => $id]);
-
-//Make result an array
-$contact = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (isset($_POST["submit"])) {
     //validate entries
