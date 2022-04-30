@@ -47,6 +47,34 @@ class Contact
     //Update Contact
     public function update()
     {
+        //Create Query
+        $sql = "UPDATE login SET name = :name, email = :email, issue = :issue, comment = :comment WHERE id = :id";
+
+        //Prepare PDO
+        $stmt = $this->conn->prepare($sql);
+
+        //Clean Data
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->issue = htmlspecialchars(strip_tags($this->issue));
+        $this->comment = htmlspecialchars(strip_tags($this->comment));
+
+        //Bind Data
+        $stmt->bindParam(":id", $this->id);
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":issue", $this->issue);
+        $stmt->bindParam(":comment", $this->comment);
+
+        //Execute Query
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            //Print Error
+            printf("Error: %s.\n", $stmt->error);
+            return false;
+        }
 
     }
 }
