@@ -19,7 +19,7 @@ class Contact
         $this->conn = $db;
     }
 
-    //Get Single Post
+    //Get Single Contact
     public function get_single()
     {
         $sql = "SELECT * FROM $this->table WHERE id = :id";
@@ -41,6 +41,12 @@ class Contact
         $this->email = $contact["email"];
         $this->issue = $contact["issue"];
         $this->comment = $contact["comment"];
+
+    }
+
+    //Update Contact
+    public function update()
+    {
 
     }
 }
