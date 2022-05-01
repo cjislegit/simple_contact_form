@@ -20,14 +20,9 @@ $new_contact->id = isset($_GET['id']) ? $_GET['id'] : die();
 $new_contact->get_single();
 
 $errors = [];
-$name = "";
-$email = "";
-$issue = "";
-$comment = "";
-$result = "";
 
 //Check if info has been updated
-if ($_GET["updated"]) {
+if (isset($_GET["updated"])) {
     $update = "<div class='success'>Message Updated</div>";
 
 } else {
@@ -40,20 +35,15 @@ if (isset($_POST["submit"])) {
     $errors = $validation->validateForm();
 
     if (!array_filter($errors)) {
-        //Make input to strings and then set variables
-        $name = $_POST["username"];
-        $email = $_POST["email"];
-        $issue = $_POST["issue"];
-        $comment = $_POST["comment"];
+        //Set variables
+        $new_contact->name = $_POST["username"];
+        $new_contact->email = $_POST["email"];
+        $new_contact->issue = $_POST["issue"];
+        $new_contact->comment = $_POST["comment"];
 
-//Create the sql querry
-        $sql = "UPDATE login SET name = :name, email = :email, issue = :issue, comment = :comment WHERE id = :id";
-
-        $stmt = $pdo->prepare($sql);
-
-//Save to db
-        if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment, "id" => $id])) {
-            header("Location: details.php?id=$id&updated=true");
+        //Update DB
+        if ($new_contact->update()) {
+            header("Location: details.php?id=$new_contact->id&updated=true");
 
         } else {
             //If there is an error is is diplayed
