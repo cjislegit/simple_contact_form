@@ -2,14 +2,18 @@
 
 require_once "user_validator.php";
 // require_once "config/heroku_db.php";
-require_once "config/heroku_db_local.php";
+// require_once "config/heroku_db_local.php";
+require_once "config/Database.php";
+require_once "models/Contact.php";
+
+//Instantiate DB $ Connect
+$database = new Database();
+$db = $database->connect();
+
+//Instantiate Contact Object
+$new_contact = new Contact($db);
 
 $errors = [];
-$name = "";
-$email = "";
-$issue = "";
-$comment = "";
-$result = "";
 
 if (isset($_POST["submit"])) {
     //validate entries
@@ -20,24 +24,17 @@ if (isset($_POST["submit"])) {
 
     if (!array_filter($errors)) {
         //Makes sure the input is strings and then sets the variables to the user input
-        $name = $_POST["username"];
-        $email = $_POST["email"];
-        $issue = $_POST["issue"];
-        $comment = $_POST["comment"];
-
-        //Creates the sql query
-        $sql = "INSERT INTO login(name, email, issue, comment) VALUES(:name, :email, :issue, :comment)";
-
-        $stmt = $pdo->prepare($sql);
+        $new_contact->name = $_POST["username"];
+        $new_contact->email = $_POST["email"];
+        $new_contact->issue = $_POST["issue"];
+        $new_contact->comment = $_POST["comment"];
 
         //save to db
 
         //Checks for errors
-        if ($stmt->execute(["name" => $name, "email" => $email, "issue" => $issue, "comment" => $comment])) {
+        if ($new_contact->create()) {
             //If no error success message is diplayed
-            $new_id = $pdo->lastInsertId();
-            $result = "<div class='success'>Account Added</div>";
-            header("Location: details.php?id=$new_id");
+            header("Location: details.php?id=$new_contact->id");
 
         } else {
             //If there is an error is is diplayed
@@ -53,7 +50,6 @@ if (isset($_POST["submit"])) {
 <?php require_once "templates/header.php"?>
 <div class="new-user">
     <h2>Contact Form</h2>
-    <div><?php echo $result ?></div>
 
     <form method="POST">
         <label>Username:</label>

@@ -19,6 +19,39 @@ class Contact
         $this->conn = $db;
     }
 
+    //Create Contact
+    public function create()
+    {
+        //Create Query
+        $sql = "INSERT INTO login(name, email, issue, comment) VALUES(:name, :email, :issue, :comment)";
+
+        //Prapare Statement
+        $stmt = $this->conn->prepare($sql);
+
+        //Clean Data
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->issue = htmlspecialchars(strip_tags($this->issue));
+        $this->comment = htmlspecialchars(strip_tags($this->comment));
+
+        //Bind Data
+        $stmt->bindParam(":name", $this->name);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":issue", $this->issue);
+        $stmt->bindParam(":comment", $this->comment);
+
+        //Execute Query
+        if ($stmt->execute()) {
+            $this->id = $this->conn->lastInsertId();
+            return true;
+        } else {
+            //Print Error
+            printf("Error: %s.\n", $stmt->error);
+            return false;
+        }
+
+    }
+
     //Get Single Contact
     public function get_single()
     {
