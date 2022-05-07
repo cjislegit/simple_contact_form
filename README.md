@@ -33,7 +33,7 @@ A form often needs to be used to pass data to various other applications. In man
 
 - HTML
 - PHP
-- PDO
+- PDO (On PDO branch)
 - MySQL
 - Heroku
 - CSS
