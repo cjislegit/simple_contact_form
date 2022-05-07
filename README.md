@@ -2,13 +2,15 @@
 
 This is my solution to the [Simple Web Contact Form](https://www.codementor.io/projects/web/create-a-contact-form-b2n9ltrdy1) project from DevProjects.
 
-## Table of contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Extra Challenge](#extra-challenge)
+- [Tech](#tech)
 - [Screenshot](#screenshot)
 - [Links](#links)
+- [Author](#author)
 
 ### Overview
 
@@ -27,6 +29,15 @@ A form often needs to be used to pass data to various other applications. In man
 - Add an edit button to the second page, send the data back to the form, and autofill the data back into the fields.
 - Add a submit button on the second page which will save the response to a database table.
 
+### Tech
+
+- HTML
+- PHP
+- PDO
+- MySQL
+- Heroku
+- CSS
+
 ### Screenshot
 
 ![Screenshot of website](./assets/screenshot.png)
@@ -35,3 +46,9 @@ A form often needs to be used to pass data to various other applications. In man
 
 - [Solution](https://www.codementor.io/project-solutions/e9zt6mreoc)
 - [Live Site](https://hidden-cliffs-05435.herokuapp.com/)
+
+### Author
+
+- Website - [Carlos Ramirez](https://cjramirez.tech/)
+- Frontend Mentor - [@cjislegit](https://www.frontendmentor.io/profile/cjislegit)
+- Twitter - [@cjram11](https://twitter.com/cjram11)
